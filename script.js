@@ -13,38 +13,38 @@
 const CATEGORIES = [
   {
     id: 'donadores',
-    name: 'Top Donadores',
+    name: 'Donadores',
     description: 'Homenaje a los pilares fundamentales de nuestra comunidad, aquellos cuya generosidad excepcional y apoyo constante han construido un legado de solidaridad que trasciende lo virtual. Estos donadores extraordinarios no solo aportaron recursos, sino que sembraron esperanza y posibilitaron sueños, convirtiéndose en el verdadero motor que impulsa el crecimiento y bienestar colectivo.',
     icon: 'fas fa-crown',
-    title: '🏆 TOP DONADORES 2025'
+    title: '🏆 DONADORES 2025'
   },
   {
     id: 'recibidos',
-    name: 'Top Recibidos',
+    name: 'Recibidos',
     description: 'Reconocemos a quienes, gracias al apoyo unánime y afectuoso de nuestra comunidad, han recibido el respaldo que inspira y transforma historias. Estas personas representan el corazón de nuestra solidaridad colectiva, demostrando cómo el apoyo comunitario puede cambiar realidades y fortalecer los lazos que nos unen como una verdadera familia virtual.',
     icon: 'fas fa-gem',
-    title: '💎 TOP RECIBIDOS 2025'
+    title: '💎 RECIBIDOS 2025'
   },
   {
     id: 'influencers',
-    name: 'Top Influencers',
+    name: 'Influencers',
     description: 'Celebramos a las voces creativas y a los creadores de contenido que amplificaron nuestro espíritu comunitario, llevando la visibilidad, la diversión y el crecimiento a nuevos horizontes. Su pasión por compartir experiencias, crear contenido memorable y conectar con la audiencia ha sido fundamental para construir una comunidad vibrante y en constante expansión.',
     icon: 'fas fa-star',
-    title: '🌟 TOP INFLUENCERS 2025'
+    title: '🌟 INFLUENCERS 2025'
   },
   {
     id: 'clanes',
-    name: 'Top Clanes',
+    name: 'Clanes',
     description: 'Honramos a los clanes que destacaron por su unión inquebrantable, actividad ejemplar y apoyo mutuo, forjando la verdadera esencia de lo que significa ser comunidad. Estos grupos extraordinarios han demostrado que la fuerza colectiva, la organización y la camaradería son los cimientos sobre los que se construyen las experiencias más memorables y significativas.',
     icon: 'fas fa-users',
-    title: '🛡️ TOP CLANES 2025'
+    title: '🛡️CLANES 2025'
   },
   {
     id: 'moderadores',
-    name: 'Top Moderadores',
+    name: 'Moderadores',
     description: 'Agradecemos profundamente a los guardianes del orden y la justicia, cuyo trabajo incansable, dedicación silenciosa y compromiso absoluto cultivaron un ambiente seguro, positivo y próspero para todos. Estos moderadores ejemplares han sido los pilares invisibles que mantienen la armonía, resolviendo conflictos con sabiduría y fomentando un espacio donde todos pueden crecer y expresarse libremente.',
     icon: 'fas fa-shield-alt',
-    title: '🧑‍⚖️ TOP MODERADORES 2025'
+    title: '🧑‍⚖️ MODERADORES 2025'
   }
 ];
 
