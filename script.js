@@ -37,7 +37,7 @@ const CATEGORIES = [
     name: 'Clanes',
     description: 'Honramos a los clanes que destacaron por su unión inquebrantable, actividad ejemplar y apoyo mutuo, forjando la verdadera esencia de lo que significa ser comunidad. Estos grupos extraordinarios han demostrado que la fuerza colectiva, la organización y la camaradería son los cimientos sobre los que se construyen las experiencias más memorables y significativas.',
     icon: 'fas fa-users',
-    title: '🛡️CLANES 2025'
+    title: '🛡️ CLANES 2025'
   },
   {
     id: 'moderadores',
