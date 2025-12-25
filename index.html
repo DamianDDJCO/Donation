@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Donation 2025 — Reconocimiento Comunitario</title>
+  <meta name="description" content="Los Premios Comunitarios DonationRBX 2025: Un homenaje a los miembros más destacados de nuestra comunidad.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== ESTILOS BASE ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      position: relative;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ===== FONDO DORADO ===== */
+    .golden-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: 
+        radial-gradient(ellipse at 20% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 40%),
+        linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+    }
+
+    .gold-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .gold-particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: #D4AF37;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #FFD700;
+      animation: goldFloat 15s infinite linear;
+    }
+
+    @keyframes goldFloat {
+      0% { transform: translateY(100vh) translateX(0) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100px) translateX(50px) rotate(180deg); opacity: 0; }
+    }
+
+    /* ===== APLICACIÓN ===== */
+    #app {
+      width: 100%;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* ===== PANTALLA DE INICIO ===== */
+    .hero-screen {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1.5rem;
+      position: relative;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      width: 100%;
+      padding: 0 1rem;
+    }
+
+    .main-logo {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, #D4AF37, #FFD700, #F0E68C);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+      text-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+    }
+
+    .year-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #D4AF37, #B8860B);
+      color: #000;
+      padding: 0.6rem 1.8rem;
+      border-radius: 2rem;
+      font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      margin-top: 0.5rem;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+      text-transform: uppercase;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+      color: #FFD700;
+      margin: 2rem 0 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      line-height: 1.3;
+    }
+
+    .hero-description {
+      color: rgba(255, 255, 255, 0.95);
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 400;
+    }
+
+    .stats-container {
+      display: flex;
+      justify-content: center;
+      margin: 2.5rem 0;
+    }
+
+    .stats-card {
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 1.2rem;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      max-width: 320px;
+      width: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .stats-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+    }
+
+    .stats-number {
+      font-size: clamp(2.2rem, 6vw, 3rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, #FFD700, #D4AF37);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: block;
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+
+    .stats-text {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: clamp(0.9rem, 2vw, 1.05rem);
+      font-weight: 500;
+    }
+
+    .hero-divider {
+      width: 120px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+      margin: 2.5rem auto;
+      border-radius: 3px;
+    }
+
+    /* ===== BOTÓN DE INICIO ===== */
+    .start-button-container {
+      margin-top: 3rem;
+      position: relative;
+    }
+
+    .gold-button {
+      background: linear-gradient(135deg, #D4AF37, #B8860B);
+      color: #000;
+      border: none;
+      padding: 1.2rem 3rem;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 800;
+      border-radius: 3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 12px 35px rgba(212, 175, 55, 0.3);
+      position: relative;
+      overflow: hidden;
+      letter-spacing: 0.5px;
+      min-width: 280px;
+      margin: 0 auto;
+      text-transform: uppercase;
+    }
+
+    .gold-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: 0.5s;
+    }
+
+    .gold-button:hover::before {
+      left: 100%;
+    }
+
+    .gold-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 45px rgba(212, 175, 55, 0.5);
+    }
+
+    /* ===== PANTALLA CATEGORÍAS ===== */
+    .categories-screen {
+      min-height: 100vh;
+      padding: 3rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .screen-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      color: #FFD700;
+      margin-bottom: 3rem;
+      text-align: center;
+      position: relative;
+      line-height: 1.2;
+      max-width: 800px;
+      padding: 0 1rem;
+    }
+
+    .screen-title::after {
+      content: '';
+      position: absolute;
+      bottom: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+      border-radius: 3px;
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      width: 100%;
+      max-width: 1200px;
+      margin-bottom: 3rem;
+      padding: 0 1rem;
+    }
+
+    .category-card {
+      background: rgba(26, 26, 26, 0.95);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 1.5rem;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      backdrop-filter: blur(15px);
+      position: relative;
+      overflow: hidden;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .category-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #D4AF37, #FFD700, #D4AF37);
+      border-radius: 1.5rem 1.5rem 0 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .category-card:hover::before {
+      opacity: 1;
+    }
+
+    .category-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(212, 175, 55, 0.6);
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.4), 0 0 25px rgba(212, 175, 55, 0.25);
+    }
+
+    .category-card.voted {
+      opacity: 0.9;
+      cursor: not-allowed;
+      position: relative;
+      filter: grayscale(0.3);
+    }
+
+    .category-card.voted::after {
+      content: '✓ VOTADO';
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(76, 175, 80, 0.25);
+      color: #4CAF50;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .category-icon {
+      font-size: 3.2rem;
+      color: #FFD700;
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .category-card:hover .category-icon {
+      transform: scale(1.1);
+    }
+
+    .category-name {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .category-desc {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1rem;
+      line-height: 1.6;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    /* ===== PANTALLA NOMINADO INDIVIDUAL ===== */
+    .nominee-screen {
+      min-height: 100vh;
+      padding: 3rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nominee-container {
+      width: 100%;
+      max-width: 700px;
+      background: rgba(20, 20, 20, 0.97);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 2rem;
+      padding: 3rem 2rem;
+      position: relative;
+      backdrop-filter: blur(25px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .nominee-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      width: 100%;
+    }
+
+    .nominee-image-container {
+      position: relative;
+      margin: 0 auto 2.5rem;
+      width: clamp(180px, 30vw, 220px);
+      height: clamp(180px, 30vw, 220px);
+    }
+
+    .nominee-image {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid transparent;
+      background: linear-gradient(135deg, #D4AF37, #FFD700) border-box;
+      padding: 5px;
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+    }
+
+    .nominee-name {
+      font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+      font-weight: 900;
+      color: #FFD700;
+      margin-bottom: 0.8rem;
+      font-family: 'Cinzel', serif;
+      line-height: 1.2;
+    }
+
+    .nominee-category {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+      font-weight: 500;
+      background: rgba(212, 175, 55, 0.1);
+      padding: 0.5rem 1.5rem;
+      border-radius: 2rem;
+      display: inline-block;
+    }
+
+    .nominee-description {
+      color: rgba(255, 255, 255, 0.95);
+      font-size: clamp(1rem, 2.5vw, 1.1rem);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 400;
+    }
+
+    /* ===== CONTROLES DE NAVEGACIÓN ===== */
+    .navigation-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .vote-button {
+      background: linear-gradient(135deg, #D4AF37, #B8860B);
+      color: #000;
+      border: none;
+      padding: 1.2rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 800;
+      border-radius: 3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .vote-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+    }
+
+    .nav-arrows {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .arrow-button {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid rgba(212, 175, 55, 0.5);
+      background: rgba(30, 30, 30, 0.9);
+      color: #FFD700;
+      font-size: 1.4rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .arrow-button:hover:not(:disabled) {
+      background: rgba(212, 175, 55, 0.15);
+      border-color: rgba(212, 175, 55, 0.9);
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .arrow-button:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .counter-display {
+      color: #FFD700;
+      font-weight: 800;
+      font-size: 1.3rem;
+      min-width: 70px;
+      text-align: center;
+    }
+
+    .exit-button {
+      background: transparent;
+      color: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 1rem 2.2rem;
+      border-radius: 3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      font-size: 1rem;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      margin-top: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .exit-button:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* ===== MODALES ===== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.97);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+      backdrop-filter: blur(15px);
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-container {
+      background: rgba(20, 20, 20, 0.97);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 2rem;
+      padding: 3rem 2.5rem;
+      max-width: 550px;
+      width: 100%;
+      position: relative;
+      transform: scale(0.95);
+      transition: transform 0.4s ease;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .modal-overlay.active .modal-container {
+      transform: scale(1);
+    }
+
+    .message-input {
+      width: 100%;
+      padding: 1.2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 1rem;
+      color: #fff;
+      font-size: 1rem;
+      margin: 1.5rem 0;
+      resize: vertical;
+      min-height: 120px;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    .message-input:focus {
+      outline: none;
+      border-color: rgba(212, 175, 55, 0.7);
+      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+    }
+
+    .modal-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .modal-button {
+      padding: 1rem 2.2rem;
+      border-radius: 3rem;
+      border: none;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-width: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .modal-confirm {
+      background: linear-gradient(135deg, #D4AF37, #B8860B);
+      color: #000;
+    }
+
+    .modal-confirm:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+    }
+
+    .modal-cancel {
+      background: transparent;
+      color: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .modal-cancel:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* ===== PANTALLAS OCULTAS ===== */
+    .hidden {
+      display: none !important;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer-text {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+      margin-top: 3rem;
+      text-align: center;
+      font-style: italic;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .hero-screen, .categories-screen, .nominee-screen {
+        padding: 1.5rem 1rem;
+      }
+      
+      .hero-content {
+        padding: 0 0.5rem;
+      }
+      
+      .categories-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        padding: 0 0.5rem;
+      }
+      
+      .category-card {
+        padding: 2rem 1.5rem;
+        min-height: 250px;
+      }
+      
+      .nominee-container {
+        padding: 2.5rem 1.5rem;
+        margin: 0 0.5rem;
+      }
+      
+      .modal-container {
+        padding: 2.5rem 1.5rem;
+      }
+      
+      .modal-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .modal-button {
+        width: 100%;
+        max-width: 280px;
+      }
+      
+      .arrow-button {
+        width: 55px;
+        height: 55px;
+      }
+      
+      .nominee-image-container {
+        width: 180px;
+        height: 180px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .main-logo {
+        letter-spacing: 1px;
+      }
+      
+      .year-badge {
+        padding: 0.5rem 1.5rem;
+      }
+      
+      .gold-button {
+        padding: 1.1rem 2.5rem;
+        min-width: 260px;
+      }
+      
+      .nominee-image-container {
+        width: 160px;
+        height: 160px;
+      }
+      
+      .vote-button {
+        padding: 1rem 2rem;
+      }
+      
+      .exit-button {
+        padding: 0.9rem 1.8rem;
+      }
+      
+      .hero-description br {
+        display: none;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .categories-grid {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      }
+      
+      .nominee-image-container {
+        width: 240px;
+        height: 240px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Fondo Dorado -->
+  <div class="golden-bg"></div>
+  <div class="gold-particles" id="goldParticles"></div>
+
+  <div id="app">
+<!-- Pantalla 1: INICIO -->
+<div class="hero-screen" id="heroScreen">
+  <div class="hero-content">
+    <h1 class="main-logo">DONATION</h1>
+    <div class="year-badge">EDICIÓN 2025</div>
+    
+    <h2 class="hero-tagline">Reconocimiento Comunitario 2025</h2>
+    
+    <p class="hero-description">
+      Durante este 2025, Donation fue mucho más que una plataforma. 
+      Se convirtió en un punto de encuentro, en historias compartidas 
+      y en personas que dejaron huella dentro de la comunidad.
+      <br><br>
+      Este espacio no busca premiar ni definir ganadores, sino 
+      conocer a los favoritos del año: aquellos nombres que, por su influencia, 
+      apoyo o impacto, marcaron a los demás y se ganaron un lugar en la memoria colectiva.
+    </p>
+    
+    <div class="hero-divider"></div>
+    
+    <div class="stats-container">
+      <div class="stats-card">
+        <span class="stats-number" id="totalMembers">0</span>
+        <span class="stats-text">
+          Miembros Activos Este Año
+        </span>
+      </div>
+    </div>
+    
+    <div class="start-button-container">
+      <button class="gold-button" id="startVote">
+        <i class="fas fa-gem"></i>
+        <span>Elegir Favoritos</span>
+      </button>
+    </div>
+    
+    <p class="footer-text">
+      "No se trata de ganar, sino de recordar a quienes dejaron huella"
+    </p>
+  </div>
+</div>
+
+
+    <!-- Pantalla 2: Categorías -->
+    <div class="categories-screen hidden" id="categoriesScreen">
+      <h2 class="screen-title">Selecciona una Categoría</h2>
+      <div class="categories-grid" id="categoriesGrid"></div>
+      <button class="exit-button" id="backToHome">
+        <i class="fas fa-home"></i>
+        <span>Regresar al Inicio</span>
+      </button>
+    </div>
+
+    <!-- Pantalla 3: Nominado Individual -->
+    <div class="nominee-screen hidden" id="nomineeScreen">
+      <div class="nominee-container">
+        <div class="nominee-header">
+          <div class="nominee-image-container">
+            <img src="" alt="Foto del Nominado" class="nominee-image" id="nomineeImage">
+          </div>
+          <h2 class="nominee-name" id="nomineeName">Nombre del Nominado</h2>
+          <div class="nominee-category" id="nomineeCategory">Categoría</div>
+          <p class="nominee-description" id="nomineeDescription">
+            Descripción detallada del nominado, destacando sus contribuciones 
+            y logros dentro de la comunidad DonationRBX.
+          </p>
+        </div>
+        
+        <div class="navigation-controls">
+          <button class="vote-button" id="voteButton">
+            <i class="fas fa-vote-yea"></i>
+            <span>Votar por este Nominado</span>
+          </button>
+          
+          <div class="nav-arrows">
+            <button class="arrow-button" id="prevButton">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <div class="counter-display">
+              <span id="currentIndex">1</span>/<span id="totalNominations">4</span>
+            </div>
+            
+            <button class="arrow-button" id="nextButton">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+          
+          <button class="exit-button" id="exitCategory">
+            <i class="fas fa-times"></i>
+            <span>Salir de esta Categoría</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Confirmación de Voto -->
+  <div class="modal-overlay" id="confirmationModal">
+    <div class="modal-container">
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <i class="fas fa-question-circle" style="font-size: 3.5rem; color: #FFD700;"></i>
+      </div>
+      
+      <h3 style="color: #FFD700; font-size: 1.8rem; text-align: center; margin-bottom: 1rem; font-family: 'Cinzel', serif;">
+        Confirmar Voto
+      </h3>
+      
+      <p style="color: rgba(255,255,255,0.95); text-align: center; margin-bottom: 0.8rem; font-size: 1.1rem;">
+        ¿Estás seguro de votar por
+      </p>
+      <p style="color: #FFD700; font-size: 1.4rem; text-align: center; font-weight: 900; margin-bottom: 0.5rem;" id="modalNomineeName"></p>
+      <p style="color: rgba(255,255,255,0.8); text-align: center; margin-bottom: 1.5rem;" id="modalCategoryName"></p>
+      
+      <textarea class="message-input" id="voteMessage" 
+        placeholder="Escribe un mensaje opcional de agradecimiento o reconocimiento (máximo 500 caracteres)..." 
+        maxlength="500"></textarea>
+      <div style="text-align: right; color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-top: -0.5rem; margin-bottom: 1rem;">
+        <span id="charCount">0</span>/500 caracteres
+      </div>
+      
+      <div class="modal-buttons">
+        <button class="modal-button modal-confirm" id="confirmVote">
+          <i class="fas fa-check"></i> Confirmar Voto
+        </button>
+        <button class="modal-button modal-cancel" id="cancelVote">
+          <i class="fas fa-times"></i> Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Ya Votado -->
+  <div class="modal-overlay" id="alreadyVotedModal">
+    <div class="modal-container">
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <i class="fas fa-check-circle" style="font-size: 3.5rem; color: #4CAF50;"></i>
+      </div>
+      
+      <h3 style="color: #FFD700; font-size: 1.8rem; text-align: center; margin-bottom: 1.5rem; font-family: 'Cinzel', serif;">
+        Ya has votado en esta categoría
+      </h3>
+      
+      <div style="background: rgba(26,26,26,0.95); border-radius: 1.2rem; padding: 1.5rem; border: 1px solid rgba(212,175,55,0.3); margin-bottom: 1.8rem;">
+        <div style="color: #FFD700; font-size: 1.2rem; margin-bottom: 0.8rem; font-weight: 800;">
+          Voto realizado anteriormente
+        </div>
+        <div id="votedDetails" style="color: rgba(255,255,255,0.9); line-height: 1.6;"></div>
+      </div>
+      
+      <div class="modal-buttons">
+        <button class="modal-button modal-confirm" id="closeVotedModal">
+          <i class="fas fa-check"></i> Entendido
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Éxito -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal-container">
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <i class="fas fa-trophy" style="font-size: 3.5rem; color: #FFD700;"></i>
+      </div>
+      
+      <h3 style="color: #FFD700; font-size: 1.8rem; text-align: center; margin-bottom: 1.5rem; font-family: 'Cinzel', serif;">
+        ¡Voto Registrado Exitosamente!
+      </h3>
+      
+      <p style="color: rgba(255,255,255,0.95); text-align: center; margin-bottom: 1.8rem; font-size: 1.1rem; line-height: 1.6;">
+        Tu voto ha sido registrado en nuestro sistema.<br>
+        Agradecemos tu participación en el reconocimiento de los miembros más destacados de nuestra comunidad.
+      </p>
+      
+      <div class="modal-buttons">
+        <button class="modal-button modal-confirm" id="continueVoting">
+          <i class="fas fa-redo"></i> Continuar Votando
+        </button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
